@@ -1,8 +1,8 @@
 const inline = require('../index')
-
 const opts = {
   workingDir: __dirname
 }
+
 
 test('inline single script', () => {
   const orgHtml = `<!DOCTYPE html><html><head></head><body>hello<script src="/static/js/main.js"></script></body></html>`

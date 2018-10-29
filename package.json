@@ -1,6 +1,6 @@
 {
   "name": "html-inline-assets",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Inline javascript, stylesheets, and images from an html page.",
   "bin": {
     "html-inline-assets": "./bin/html-inline-assets"
@@ -13,7 +13,11 @@
     "type": "git",
     "url": "git+https://github.com/seongmo/html-inline-assets.git"
   },
-  "keywords": ["html", "inline", "asset"],
+  "keywords": [
+    "html",
+    "inline",
+    "asset"
+  ],
   "author": "kyul",
   "license": "MIT",
   "bugs": {
@@ -25,6 +29,6 @@
   },
   "dependencies": {
     "arg": "^2.0.0",
-    "jsdom": "^12.2.0"
+    "cheerio": "^1.0.0-rc.2"
   }
 }
