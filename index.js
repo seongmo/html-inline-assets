@@ -10,7 +10,7 @@ module.exports = function inline(html, opts = {}) {
   const dom = new JSDOM(html)
   // const script = dom.window.document.querySelector('script')
   dom.window.document.querySelectorAll('script').forEach(script => {
-    
+    if(!script.src) return;
     if(ignoreScripts.some(re => RegExp(re).test(script.src))) {
       return;
     }

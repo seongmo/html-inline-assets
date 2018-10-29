@@ -25,6 +25,13 @@ test('ignore remote script', () => {
   expect(output).toEqual(expected)
 });
 
+test('ignore inlined script', () => {
+  const orgHtml = `<!DOCTYPE html><html><head></head><body>hello<script>const name='john'</script></body></html>`
+  const output = inline(orgHtml, opts)
+  const expected = orgHtml
+  expect(output).toEqual(expected)
+});
+
 test('inline single style link', () => {
   const orgHtml = `<!DOCTYPE html><html><head><link href="/static/css/main.css" rel="stylesheet"></head><body>hello</body></html>`
   const output = inline(orgHtml, opts)

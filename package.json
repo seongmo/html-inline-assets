@@ -1,6 +1,6 @@
 {
   "name": "html-inline-assets",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Inline javascript, stylesheets, and images from an html page.",
   "bin": {
     "html-inline-assets": "./bin/html-inline-assets"
