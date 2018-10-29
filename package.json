@@ -2,6 +2,9 @@
   "name": "html-inline-assets",
   "version": "1.0.1",
   "description": "Inline javascript, stylesheets, and images from an html page.",
+  "bin": {
+    "html-inline-assets": "./bin/html-inline-assets"
+  },
   "main": "index.js",
   "scripts": {
     "test": "jest tests"
