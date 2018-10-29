@@ -18,7 +18,7 @@ module.exports = function inline(html, opts = {}) {
     .each(function(_, el) {
       const src = $(el).attr('src')
       const content = fs.readFileSync(path.join(workingDir, src))
-      $(el).html(content).removeAttr('src')
+      $(el).text(content).removeAttr('src')
     })
     
   $('link[rel=stylesheet][href]')
