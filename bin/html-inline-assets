@@ -1,0 +1,66 @@
+#!/usr/bin/env node
+const arg = require('arg')
+const inline = require('../')
+const { readFileSync, writeFileSync } = require('fs')
+const { resolve, dirname } = require('path')
+
+const args = arg({
+  '--help': Boolean,
+  '--source-file': String,
+  '--output-file': String,
+  '--ignore-scripts': [String], 
+  '--ignore-styles': [String], 
+
+  '-h': '--help',
+  '-i': '--source-file',
+  '-o': '--output-file',
+})
+
+const {
+  '--help': help,
+  '--source-file': sourceFile,
+  '--output-file': outputFile,
+  '--ignore-scripts': ignoreScripts, 
+  '--ignore-styles': ignoreStyles, 
+} = args
+
+if (help) {
+  console.log(`
+    Description
+      inline assets in html.
+    Usage
+      $ html-inline-assets <source.html> -o <output.html>
+    Options
+      --source-file, -i      File to read
+      --output-file, -o      File to write
+      --help, -h            Displays this message
+
+      --ignore-scripts      RegExp patterns to ignore scripts
+      --ignore-styles       RegExp patterns to ignore styles
+  `)
+  process.exit(0)
+}
+
+const source = sourceFile || args._[0]
+
+if (!source) {
+  console.error(`> Start html-inline-assets <source.html> \n`)
+  process.exit(1)
+}
+
+const sourceFilePath = resolve(process.cwd(), source)
+const workingDir = dirname(sourceFilePath)
+
+const output = inline(readFileSync(sourceFilePath), {
+  workingDir,
+  ignoreScripts,
+  ignoreStyles,
+})
+
+if(outputFile) {
+  const outputFilePath = resolve(process.cwd(), outputFile)
+  writeFileSync(outputFilePath, output)
+}
+else {
+  console.log(output);
+}
