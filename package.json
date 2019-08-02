@@ -25,10 +25,10 @@
   },
   "homepage": "https://github.com/seongmo/html-inline-assets#readme",
   "devDependencies": {
-    "jest": "^23.6.0"
+    "jest": "^24.8.0"
   },
   "dependencies": {
-    "arg": "^2.0.0",
-    "cheerio": "^1.0.0-rc.2"
+    "arg": "^4.1.1",
+    "cheerio": "^1.0.0-rc.3"
   }
 }
